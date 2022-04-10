@@ -1,1 +1,291 @@
-11111
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="renderer" content="webkit"><meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="minimal-ui,width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <meta name="format-detection" content="telephone=no"> 
+  <link rel="shortcut icon" href="../imgs_pc/APP.ico" type="image/x-icon">
+  <link rel="icon" href="../imgs_pc/APP.ico" type="image/x-icon">
+  <link type="text/css" rel="stylesheet" href="http://app1.bole.ws/demo.css">
+  <link type="text/css" rel="stylesheet" href="http://app1.bole.ws/fakeloader.css">
+  <link type="text/css" rel="stylesheet" href="http://app1.bole.ws/main.css">
+  <title>APP下载</title>
+</head>
+<body class="app">
+<div class="masklayer" id="MaskLayer" style="display:none"></div>
+<div class="top_ddd">
+  <div>   
+    <img src="iphone_help.png" id="iphone" style="display: none;" alt="">    
+    <img src="iphone_help01.png" id="iphone01" style="display: none;" alt="">     
+    <img src="anzhuo_help.png" id="anzhuo" style="display: none;" alt="">    
+  </div>
+</div>
+<div style="position: relative;">
+  <span id="l" class="pattern left"><img src="http://app1.bole.ws//download_pattern_left.png"></span>
+  <span id="r" class="pattern right"><img src="http://app1.bole.ws//download_pattern_right.png"></span>
+</div>
+<div class="out-container">
+  <div class="main">
+  <header>
+      <div class="table-container">
+        <div class="cell-container">
+          <div class="app-brief">
+            <div class="icon-container wrapper">
+              <i class="icon-icon_path bg-path"></i>
+              <span class="icon">
+                <img src="http://app1.bole.ws/blyl.png">
+              </span>
+              <span class="qrcode" title="">
+              <canvas width="200" height="200" style="display: none;"></canvas>
+                <img class="pcdd_ewm" alt="Scan me!">
+              </span>
+            </div>
+            <h1 class="name wrapper">
+              <span class="icon-warp">
+               APP
+              </span>
+            </h1>
+            <p class="scan-tips">请扫描二维码下载或手机浏览器输入网址下载<br>              
+            </p>
+            <div class="release-info" style="position:relative;">
+              <p>正式版 -
+                <span itemprop="softwareVersion">1.3 (Build 1.3)
+                - 12005.25 KB</span></p>
+              <p>更新于: <span itemprop="datePublished">2019-03-25 18:00</span></p>           
+            </div>
+          </div>
+          <div  style="position: relative;text-align: center;" class="actions">
+            <div id="load">页面加载中，请等待...</div>
+            <div style="text-align: center;margin: 10px auto;width: 200px" id="da"></div>
+            <div style="text-align: center;margin: 10px auto;width: 200px" id="b">
+           
+            </div>
+            <!--div style="text-align: center;margin: 20px auto;width: 200px;" id="picBtn">
+              <a class="bui" style="border: 1px solid #A9B1B3;display: none;" href="javascript:void(0)">安装步骤</a>
+            </div-->
+            <div class="fakeloader"></div>
+          </div>         
+          <div class="popularize-section section" id="popularize-container">
+      <div class="label">推荐应用</div>
+      <div class="popularize-list" id="popularize-list"></div>
+    </div>   
+	
+    <h2 class="title" id="title">扫描二维码<img src="jt.png"></h2>
+        </div>
+      </div>  
+    </header>
+    <div id="sweep" class="master-section section">     
+      <img id="code" class="pcdd_ewm"  style="width: 200px;display: none;" alt="">
+    </div>
+    <link href="help_fc.css" rel="stylesheet" type="text/css">
+    <script src="swiper.min.js" type="text/javascript"></script>
+    <link href="swiper.css" rel="stylesheet" type="text/css">   
+    <div class="help_fcwk" id="helpTips" style="margin-top: -311.5px;">
+      <div style="text-align: right;">
+        <img src="ab_an.gif" id="btnClose" width="22">
+      </div>
+      <div class="swiper-container swiper-container-horizontal">
+        <div class="swiper-wrapper">
+          <div class="help_fc_img swiper-slide swiper-slide-active" ><img src="00.png"></div>
+          <div class="help_fc_img swiper-slide swiper-slide-next" ><img src="01.png"></div>
+          <div class="help_fc_img swiper-slide" ><img src="02.png"></div>
+          <div class="help_fc_img swiper-slide" ><img src="03.png"></div>
+          <div class="help_fc_img swiper-slide" ><img src="04.png"></div>
+          <div class="help_fc_img swiper-slide" ><img src="05.png"></div>         
+        </div>
+      </div>
+      <div class="help_fc_dot" >
+        <div class="swiper-pagination swiper-pagination-clickable" style="bottom:65px;left:48%;">
+          <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+          <span class="swiper-pagination-bullet"></span>
+          <span class="swiper-pagination-bullet"></span>
+          <span class="swiper-pagination-bullet"></span>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+ <div id="ft-bottom" class="color-3">
+        <!--Copyright © 科技有限公司   版权所有-->
+ </div>
+
+    <script src="jquery.min.js"></script>
+    <script src="fakeloader.js"></script>
+    <script>
+    	$(function(){ // 设置二维码图片地址
+	  		$('.pcdd_ewm').attr('src','https://api.qrserver.com/v1/create-qr-code/?&data=http://app1.bole.ws/blyl.html?M_tool');
+	  	})
+      var browser={
+       versions:function(){
+                var u = navigator.userAgent, app = navigator.appVersion;
+                return {
+                    // android终端或者uc浏览器
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                    // 是否为iPhone或者QQHD浏览器
+                    iPhone: u.indexOf('iPhone') > -1 ,
+                    // 是否iPad
+                    iPad: u.indexOf('iPad') > -1 ,
+                    // 是否是通过微信的扫一扫打开的
+                    weChat: u.indexOf('MicroMessenger') > -1
+                };
+        }(),
+        language:(navigator.browserLanguage || navigator.language).toLowerCase()
+      }
+      $("#load").html('');
+      //安卓下载地址
+	  var an_1 ='http://103.71.153.211:8723/blblapp.apk';
+	  var an_2 ='http://103.71.153.211:8723/blblapp.apk';
+	  var an_3 ='http://103.71.153.211:8723/blblapp.apk';
+	  var an_4 ='';
+	  var an_5 ='';
+	  
+      //苹果下载地址
+	  var iph_1 ='blblyl.mobileconfig';
+	  var iph_2 ='blblyl.mobileconfig';
+	  var iph_3 ='blblyl.mobileconfig';
+	  var iph_4 ='';
+	  var iph_5 ='';
+	 
+      //普通链接
+      var pu = 'http://app1.bole.ws/blyl.html';
+	  var ua = window.navigator.userAgent.toLowerCase();
+	     function dong(){
+		  $(".fakeloader").fakeLoader({
+              timeToHide: 4000,
+              spinner: "spinner2",
+              top: '0px',  // Default Top value
+              left: '130px', // Default Left value
+              zIndex: '2',  // Default zIndex
+              bgColor: 'rgba(46, 204, 113, 0)'
+            });
+		  };
+		   /*苹果的5个下载地址*/
+		  function sub1(a) {
+			  if(ua.match(/MicroMessenger/i)) {
+				$(".top_ddd").show();
+				$("#iphone").show();
+			  }else if(/uc/i.test(navigator.userAgent.toLowerCase())){
+				  		$(".top_ddd").show();
+					    $("#iphone01").show();
+			  }else{
+						dong();
+						$('#code').show();
+						$("#b").html('<p>&nbsp;</p>');
+						self.location = a+'?'+Math.random();  //加随机数 防止缓存问题
+					 };
+          };
+		  
+		   /*安卓的5个下载地址*/
+		   function sub2(b) {
+              if(ua.match(/MicroMessenger/i)) {
+                $("#code").show();
+                $(".top_ddd").show();
+                $("#anzhuo").show();
+              }else{
+				       dong();
+                $("#b").html('<p>&nbsp;</p>');
+                self.location = b;
+				        $('#code').show();
+              };
+            };
+			
+			
+      if(/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)){
+        //苹果浏览器
+        $(".bui").show();
+        $("#load").hide();
+				$('#code').show();
+				$("#title").show();
+		
+        $("#b").html('<button onclick="sub1(iph_1)">下载安装1</button><button onclick="sub1(iph_2)">下载安装2</button><button onclick="sub1(iph_3)">下载安装3</button>');		 		
+        $(".but").click(function(){
+				    dong();
+        });        		 
+      }else if(/(Android)/i.test(navigator.userAgent)){
+        //安卓浏览器
+          $("#load").hide();
+          $(".bui").hide(); 
+	        $('#code').show();
+		      $("#title").show();
+		  
+		  $("#b").html('<button onclick="sub2(an_1)">下载安装</button>');
+	  }else{
+          $("#load").hide();
+		      $("#sweep").hide();
+		      $("#title").hide();		  
+		};
+    </script>
+    <script type="text/javascript">
+      window.onload = function () {		  
+		//扫描二维码定位
+        var tipsDivH = $('#helpTips').outerHeight(true);
+        $('#helpTips').css('margin-top', -tipsDivH / 2);
+        $('.help_fc_bg').height(pageHeight()); 
+      }
+
+      $(function ($) {
+        $('#picBtn').click(function () {
+          setTimeout(function () {
+            $('#helpTips').show();
+            $("#l").hide();
+            $("#r").hide();
+            initHelpTips();
+          }, 0);
+
+          var swiper = undefined;
+          var proInterval = undefined;
+
+          function initHelpTips() {
+
+            swiper = new Swiper('.swiper-container', {
+              pagination: '.swiper-pagination',
+              slidesPerView: 1,
+              paginationClickable: true,
+              spaceBetween: 0,
+              roundLengths: true
+            });
+
+            var curPro = -10;
+            if (!proInterval) clearInterval(proInterval);
+            proInterval = setInterval(function () {
+              curPro++;
+              if (curPro <= 0) {
+                return;
+              }
+              $('.help_fc_jdtt').width(curPro + '%');
+              if (curPro == 100) {
+                clearInterval(proInterval);
+                $('.help_fc_jdt').hide();
+                $('.gb_an').show();
+                $('.help_fc_bt').html('安装完成，请开始设置！');
+                $('.help_fc_ts').hide();
+                $('.help_fc_an').show();
+              }
+            }, 80);
+
+          }
+
+        });
+      });
+      $('#btnClose').click(function () {
+        $("#l").show();
+        $("#r").show();
+        $('#helpTips').hide();
+        $('.help_fc_bg').hide();
+      });
+      /* 当前页面高度 */
+      function pageHeight() {
+        return document.body.scrollHeight;
+      }
+		
+    </script>
+</body>
+
+
+</html>
