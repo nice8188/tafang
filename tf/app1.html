@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>芸海</title>
+		<meta content="max-age=0" http-equiv="Cache-Control">
+		<meta content="YES" name="apple-touch-fullscreen">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		 <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+		<!-- <script type="text/javascript" src="js/clipboard.min.js"></script> -->
+		 <link rel="stylesheet" href="index.css?v=2">
+	</head>
+	<body style="">
+
+		<div id="popUpBg" onclick="hidenPop()">
+			<div class="openInBrower">
+				<img src="alert1.png" alt="x">
+			</div>
+		</div>
+		<div class="wrap clipObj" style="height: 693px;">
+		<div class="appdown">
+			
+			<a id="andDownLoadUrl" href="#"><img src="and.png" alt="" class="andBtn"></a>
+			<a id="iosDownLoadUrl" href="#"><img src="ios.png" alt="" class="iosBtn"></a>
+			<!-- <a id="andDownLoadUrl" href="javascript:downapp('wzgl.apk');"><img src="images/and.png" alt="" class="andBtn"></a> -->
+		</div>
+	</div>
+    <script type="text/javascript">
+    
+    	function downapp(url){
+    		var wechatInfo = navigator.userAgent.match(/MicroMessenger\/([\d\.]+)/i);
+    		//var wechatInfo = true;
+            // 判断宿主是否是微信，若宿主是微信，则弹出遮罩，并禁止滑动
+            if(wechatInfo) {
+                document.getElementById('popUpBg').style.display = "block";
+                document.getElementsByTagName('body')[0].style.overflow = "hidden";
+            }else{
+                window.location.href = url;
+            }
+    	}
+    
+    	$(function(){
+			
+			var heightPx=$(".wrap").css("width").replace("px","")*1334/750; 
+			 $(".wrap").css("height",heightPx+"px");
+			//$(".appdown").css("top",heightPx*1100/1280+"px");
+    	      
+    	      
+			  var codeName = 'shareCode';
+			  var code = '';
+			  var reg = new RegExp('(^|&)' + codeName + '=([^&]*)(&|$)', 'i');
+			  var r = window.location.search.substr(1).match(reg);
+			  if (r != null) {
+				  code = unescape(r[2]);
+			  }
+			  
+			    copyText = (text) => {
+			      // 数字没有 .length 不能执行selectText 需要转化成字符串
+			      const textString = text.toString();
+			      let input = document.querySelector('#copy-input');
+			      if (!input) {
+			        input = document.createElement('input');
+			        input.id = "copy-input";
+			        input.readOnly = "readOnly";        // 防止ios聚焦触发键盘事件
+			        input.style.position = "absolute";
+			        input.style.left = "-1000px";
+			        input.style.zIndex = "-1000";
+			        document.body.appendChild(input)
+			      }
+			  
+			      input.value = textString;
+			      // ios必须先选中文字且不支持 input.select();
+			      selectText(input, 0, textString.length);
+			      console.log(document.execCommand('copy'), 'execCommand');
+			      if (document.execCommand('copy')) {
+			        document.execCommand('copy');
+			        //alert('已复制到粘贴板');
+			      }
+			      input.blur();
+			  
+			      // input自带的select()方法在苹果端无法进行选择，所以需要自己去写一个类似的方法
+			      // 选择文本。createTextRange(setSelectionRange)是input方法
+			      function selectText(textbox, startIndex, stopIndex) {
+			        if (textbox.createTextRange) {//ie
+			          const range = textbox.createTextRange();
+			          range.collapse(true);
+			          range.moveStart('character', startIndex);//起始光标
+			          range.moveEnd('character', stopIndex - startIndex);//结束光标
+			          range.select();//不兼容苹果
+			        } else {//firefox/chrome
+			          textbox.setSelectionRange(startIndex, stopIndex);
+			          textbox.focus();
+			        }
+			      }
+			    };
+    	      
+			// if(code){
+				  
+			// 	var shareInfo = "BH&"+code;
+			// 	$(".clipObj").attr("data-clipboard-text",shareInfo);
+
+			// 	var clipboard = new ClipboardJS(".clipObj");
+			// 	clipboard.on('success', function(e) {
+			// 		//console.log(e);
+			// 	});
+			// 	clipboard.on('error', function(e) {
+			// 		//console.log(e);
+			// 	});
+				$("#andDownLoadUrl").click(function(){
+					
+					copyText(code);
+					downapp('https://gbapifdxsssna_5.2.7.apk');
+				});
+				$("#iosDownLoadUrl").click(function(){
+					
+					copyText(code);
+					downapp('https://ifsss');
+					
+				});
+			
+    	});
+    
+		 
+    	 
+    	 function hidenPop() {
+   	      $('#popUpBg').hide();
+   	    }
+    	 
+	 
+		</script>
+	</body>
+</html>
